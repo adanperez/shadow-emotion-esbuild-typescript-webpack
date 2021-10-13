@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2016",
+    "module": "ESNext",
+    "paths": {},
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "webworker",
+      "scripthost",
+      "es2020"
+    ],
+    "types": [
+      "@emotion/react/types/css-prop",
+      "jest",
+      "node",
+    ],
+    "preserveSymlinks": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "declaration": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "pretty": true,
+    "traceResolution": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true
+  },
+}

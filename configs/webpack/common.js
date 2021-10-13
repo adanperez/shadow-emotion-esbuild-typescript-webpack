@@ -1,6 +1,7 @@
 // shared config (dev and prod)
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ProvidePlugin } = require("webpack");
 
 module.exports = {
   resolve: {
@@ -9,10 +10,20 @@ module.exports = {
   context: resolve(__dirname, "../../src"),
   module: {
     rules: [
+      // {
+      //   test: [/\.jsx?$/, /\.tsx?$/],
+      //   use: ["babel-loader"],
+      //   exclude: /node_modules/,
+      // },
       {
-        test: [/\.jsx?$/, /\.tsx?$/],
-        use: ["babel-loader"],
-        exclude: /node_modules/,
+        test: /\.tsx?$/,
+        loader: "esbuild-loader",
+        options: {
+          loader: "tsx", // Or 'ts' if you don't need tsx
+          target: "es2015",
+          jsxFactory: "jsx",
+          // jsxFragment: `import { jsx } from '@emotion/react'`,
+        },
       },
       {
         test: /\.css$/,
@@ -31,7 +42,13 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "index.html.ejs" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "index.html.ejs" }),
+    new ProvidePlugin({
+      // React: "react",
+      jsx: ["@emotion/react", "jsx"],
+    }),
+  ],
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
